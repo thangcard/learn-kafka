@@ -81,10 +81,19 @@ Important: For the rest of the course, don't forget to add the extension .bat to
 # 2. Kafka Topics CLI
 # Create topic
 kafka-topics.bat --zookeeper 127.0.0.1:2181 --topic first_topic --create --partitions 3 --replication-factor 1
+
 # List topic
-kafka-topics.bat --zookeeper 127.0.0.1:2181 --list
+Win: kafka-topics.bat --zookeeper 127.0.0.1:2181 --list
+Linux: bin/kafka-topics.sh --list --zookeeper 10.0.0.63:2181
+
+# List partitions and offsets:
+bin/kafka-run-class.sh kafka.tools.ConsumerOffsetChecker --broker-info --group test_group --topic test_topic --zookeeper 10.0.0.63:2181
+bin/kafka-consumer-groups.sh --bootstrap-server 10.0.0.63:9092 --group count_errors --describe
+
 # Describe topic
-kafka-topics.bat --zookeeper 127.0.0.1:2181 --topic first_topic --describe
+Win: kafka-topics.bat --zookeeper 127.0.0.1:2181 --topic first_topic --describe
+Linux: bin/kafka-topics.sh --topic first_topic --describe --zookeeper 10.0.0.63:2181
+
 # Delete topic
 kafka-topics.bat --zookeeper 127.0.0.1:2181 --topic second_topic --delete
 

@@ -120,14 +120,16 @@ kafka-console-consumer.bat --bootstrap-server 127.0.0.1:9092 --topic first_topic
 kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
 # Describe Consumer Group
 kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group first-group
+# Delete a consumer-group
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --delete --group first-group
 
 ---------------------------------------------
 # 6. Resseting Offsets
 # Reset to earliest
 kafka-consumer-groups.bat --bootstrap-server localhost:9092 --group first-group --reset-offsets --to-earliest --execute --topic first_topic
 # Reset shift by (>0 is Forward, <0 is Backward)
- kafka-consumer-groups.bat --bootstrap-server localhost:9092 --group first-group --reset-offsets --shift-by -2 --execute --topic first_topic
- 
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --group first-group --reset-offsets --shift-by -2 --execute --topic first_topic
+
  ---------------------------------------------
 # 7. The CLI has many options, but here are the others that are most commonly used:
 # Producer with keys
